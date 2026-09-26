@@ -1,10 +1,11 @@
 name: Host2Play 续期
 
 on:
+  workflow_dispatch: # 保留手动点击触发
   schedule:
-    - cron: '0 0,3,5,8,11,14,17,20,22 * * *'    # 触发点: 00:00, 08:00，11:00, 22:00
-    - cron: '30 5,8,12,16,20 * * *'      # 触发点: 05:30, 16:30
-  workflow_dispatch:
+    - cron: '0 */2 * * *' # 每 2 小时自动运行一次（在每第 2 个小时的第 0 分钟）
+  repository_dispatch:
+    types: [run-renew] # 保留 API 外部触发选项
 
 permissions:
   actions: write
