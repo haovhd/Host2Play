@@ -4,8 +4,8 @@ on:
   workflow_dispatch: # 保留手动点击触发
   schedule:
     - cron: '0 */12 * * *' # 每 2 小时自动运行一次（在每第 2 个小时的第 0 分钟）
-  repository_dispatch:
-    types: [run-renew] # 保留 API 外部触发选项
+#  repository_dispatch:
+#    types: [run-renew] # 保留 API 外部触发选项
 
 permissions:
   actions: write
